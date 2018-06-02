@@ -27,14 +27,8 @@
         <%= select_tag(:equipment_id, options_from_collection_for_select(Equipment.all, :id, :title, @loan.equipment_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for borrower_id -->
-      <div class="form-group">
-        <label for="borrower_id" class="control-label">
-          Borrower
-        </label>
-
-        <%= select_tag(:borrower_id, options_from_collection_for_select(User.all, :id, :id, @loan.borrower_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for owner_id -->
       <div class="form-group">
