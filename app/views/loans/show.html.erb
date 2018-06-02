@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Loan #<%= @loan.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Equipment</dt>
+      <dd><%= @loan.equipment_id %></dd>
+
+      <dt>Borrower</dt>
+      <dd><%= @loan.borrower_id %></dd>
+
+      <dt>Owner</dt>
+      <dd><%= @loan.owner_id %></dd>
+
+      <dt>Start time</dt>
+      <dd><%= @loan.start_time %></dd>
+
+      <dt>End time</dt>
+      <dd><%= @loan.end_time %></dd>
+
+      <dt>Pickupdropoff location</dt>
+      <dd><%= @loan.pickupdropoff_location %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/loans" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/loans/<%= @loan.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_loan/<%= @loan.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

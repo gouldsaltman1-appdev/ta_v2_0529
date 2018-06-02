@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @loan.errors.any? %>
+  <% @loan.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Loan #<%= @loan.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_loan/<%= @loan.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for equipment_id -->
+      <div class="form-group">
+        <label for="equipment_id" class="control-label">
+          Equipment
+        </label>
+
+        <input type="text" id="equipment_id" name="equipment_id" placeholder="Equipment" class="form-control" value="<%= @loan.equipment_id %>">
+      </div>
+
+      <!-- Label and input for borrower_id -->
+      <div class="form-group">
+        <label for="borrower_id" class="control-label">
+          Borrower
+        </label>
+
+        <input type="text" id="borrower_id" name="borrower_id" placeholder="Borrower" class="form-control" value="<%= @loan.borrower_id %>">
+      </div>
+
+      <!-- Label and input for owner_id -->
+      <div class="form-group">
+        <label for="owner_id" class="control-label">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id" name="owner_id" placeholder="Owner" class="form-control" value="<%= @loan.owner_id %>">
+      </div>
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="<%= @loan.start_time %>">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @loan.end_time %>">
+      </div>
+
+      <!-- Label and input for pickupdropoff_location -->
+      <div class="form-group">
+        <label for="pickupdropoff_location" class="control-label">
+          Pickupdropoff location
+        </label>
+
+        <input type="text" id="pickupdropoff_location" name="pickupdropoff_location" placeholder="Pickupdropoff location" class="form-control" value="<%= @loan.pickupdropoff_location %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Loan
+      </button>
+      or
+      <a href="/loans/<%= @loan.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
