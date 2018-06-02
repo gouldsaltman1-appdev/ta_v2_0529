@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :loans,
+             :foreign_key => "borrower_id"
+
   has_many   :pieces_of_equipment,
              :class_name => "Equipment",
              :foreign_key => "owner_id",
