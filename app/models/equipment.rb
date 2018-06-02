@@ -1,6 +1,9 @@
 class Equipment < ApplicationRecord
   # Direct associations
 
+  belongs_to :category,
+             :counter_cache => :pieces_of_equipment_count
+
   has_many   :loans
 
   belongs_to :owner,
