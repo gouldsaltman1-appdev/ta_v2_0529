@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
   def index
-    @loans = current_user.loans.page(params[:page]).per(10)
+    @q = current_user.loans.ransack(params[:q])
+    @loans = @q.result(:distinct => true).includes(:borrower, :piece_of_equipment, :owner).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@loans.where.not(:pickupdropoff_location_latitude => nil)) do |loan, marker|
       marker.lat loan.pickupdropoff_location_latitude
       marker.lng loan.pickupdropoff_location_longitude
