@@ -65,6 +65,59 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_loan" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for equipment_id -->
+      <input type="hidden" name="equipment_id" value="<%= @equipment.id %>">
+
+      <!-- Label and input for borrower_id -->
+      <input type="hidden" name="borrower_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for owner_id -->
+      <div class="form-group">
+        <label for="owner_id" class="control-label">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id" name="owner_id" placeholder="Owner" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for pickupdropoff_location -->
+      <div class="form-group">
+        <label for="pickupdropoff_location" class="control-label">
+          Pickupdropoff location
+        </label>
+
+        <input type="text" id="pickupdropoff_location" name="pickupdropoff_location" placeholder="Pickupdropoff location" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Loan
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
