@@ -1,4 +1,6 @@
 ActiveAdmin.register Loan do
+
+ permit_params :equipment_id, :borrower_id, :owner_id, :start_time, :end_time, :pickupdropoff_location
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
