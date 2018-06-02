@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :loansgiven,
+             :through => :pieces_of_equipment,
+             :source => :loans
+
   # Validations
 
   # Include default devise modules. Others available are:
