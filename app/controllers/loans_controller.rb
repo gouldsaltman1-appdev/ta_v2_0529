@@ -1,6 +1,6 @@
 class LoansController < ApplicationController
   def index
-    @loans = Loan.all
+    @loans = current_user.loans.page(params[:page]).per(10)
 
     render("loans/index.html.erb")
   end
