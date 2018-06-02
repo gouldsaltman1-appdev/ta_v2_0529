@@ -15,10 +15,22 @@
       <dd><img src="<%= @equipment.image %>" class="img-responsive"></dd>
 
       <dt>Owner</dt>
-      <dd><%= @equipment.owner_id %></dd>
+      <dd>
+        <% if @equipment.owner.present? %>
+          <a href="/users/<%= @equipment.owner_id %>">
+            <%= @equipment.owner.id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Category</dt>
-      <dd><%= @equipment.category_id %></dd>
+      <dd>
+        <% if @equipment.category.present? %>
+          <a href="/categories/<%= @equipment.category_id %>">
+            <%= @equipment.category.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

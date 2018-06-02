@@ -22,8 +22,20 @@
         <td><%= equipment.title %></td>
         <td><%= equipment.description %></td>
         <td><img src='<%= equipment.image %>' class='img-responsive'></td>
-        <td><%= equipment.owner.id %></td>
-        <td><%= equipment.category.name %></td>
+        <td>
+          <% if equipment.owner.present? %>
+            <a href="/users/<%= equipment.owner.id %>">
+              <%= equipment.owner.id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if equipment.category.present? %>
+            <a href="/categories/<%= equipment.category.id %>">
+              <%= equipment.category.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/equipment/<%= equipment.id %>" class="btn btn-primary">Show</a>
           
