@@ -1,6 +1,11 @@
 class LoansController < ApplicationController
   def index
     @loans = current_user.loans.page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@loans.where.not(:pickupdropoff_location_latitude => nil)) do |loan, marker|
+      marker.lat loan.pickupdropoff_location_latitude
+      marker.lng loan.pickupdropoff_location_longitude
+      marker.infowindow "<h5><a href='/loans/#{loan.id}'>#{loan.equipment_id}</a></h5><small>#{loan.pickupdropoff_location_formatted_address}</small>"
+    end
 
     render("loans/index.html.erb")
   end
